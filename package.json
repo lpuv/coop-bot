@@ -1,0 +1,17 @@
+{
+  "name": "cc-chamber-bot",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "git@github.com:gamer4life1/coop-bot.git",
+  "author": "Gamer4life1 <lpuvilla0001@mymail.lausd.net>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "btoa": "^1.2.1",
+    "express": "^4.17.1",
+    "node-fetch": "^2.6.1"
+  }
+}
