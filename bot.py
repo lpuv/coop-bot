@@ -24,11 +24,11 @@ async def setupChamberList(ctx, pastebin):
     chamber_list = open('chamber-list.txt', 'w')
 
 
-    chamber-list-array = response.content.decode('ascii').replace('\r', '').split('\n')
-    current_chamber = chamber-list-array[0]
+    chamber_list_array = response.content.decode('ascii').replace('\r', '').split('\n')
+    current_chamber = chamber_list_array[0]
     current_chamber_file = open('current-chamber.txt', 'w')
     current_chamber_file.write(current_chamber)
-    for chamber in chamber-list-array:
+    for chamber in chamber_list_array:
         chamber_list.write(chamber)
     chamber_list.close()
 #bot_data.close()
