@@ -19,8 +19,8 @@ async def setupChamberList(ctx, pastebin):
 
     response = requests.get(f'https://pastebin.com/raw/{pastebin}')
 
-    os.unlink('chamber-list.txt')
-    os.unlink('current-chamber.txt')
+#    os.unlink('chamber-list.txt')
+#    os.unlink('current-chamber.txt')
     chamber_list = open('chamber-list.txt', 'w')
 
 
@@ -47,7 +47,7 @@ async def nextChamber(ctx):
        chambers.append(file.readline())
 
    current_chamber = chambers[chambers.index(current_chamber) + 1]
-   os.unlink('current-chamber.txt')
+#   os.unlink('current-chamber.txt')
    file = open('current-chamber.txt', 'w')
    file.write(current_chamber)
 
