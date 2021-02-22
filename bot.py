@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands
-import datetime
+import datetime, requests
 
 from urllib import parse, request
 import re, os
@@ -58,10 +58,5 @@ async def on_ready():
     print('My Ready is Body')
 
 
-@bot.listen()
-async def on_message(message):
-    #if "tutorial" in message.content.lower():
-        # in this case don't respond with the word "Tutorial" or you will call the on_message event recursively
-    await bot.process_commands(message)
 
 bot.run(os.environ['TOKEN'])
