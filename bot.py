@@ -52,7 +52,7 @@ async def setupChamberList(ctx, pastebin):
     cur = con.cursor()
     cur.execute('DELETE FROM CHAMBERS;')
     cur.execute('DELETE FROM CURRENTCHAMBER;')
-    for i in range(chamber_list_array):
+    for i in range(len(chamber_list_array)):
         cur.execute(f'INSERT INTO CHAMBERS (index, chamber) VALUES ({i}, {chamber_list_array[i]});')
     cur.execute(f'INSERT INTO CURRENTCHAMBER (index) VALUES (0);')
     con.commit()
