@@ -89,8 +89,8 @@ async def on_ready():
     await bot.change_presence(activity=discord.Game(name="Watching Cooperation Conundrum"))
     print('My Ready is Body')
     cursor = con.cursor()
-    cursor.execute('CREATE TABLE IF NOT EXIST CHAMBERS (INDEX INT PRIMARY KEY NOT NULL, NAME VARCHAR(255) NOT NULL);')
-    cursor.execute('CREATE TABLE IF NOT EXIST CURRENTCHAMBER (INDEX INT NOT NULL);')
+    cursor.execute('CREATE TABLE IF NOT EXISTS CHAMBERS (INDEX INT PRIMARY KEY NOT NULL, NAME VARCHAR(255) NOT NULL);')
+    cursor.execute('CREATE TABLE IF NOT EXISTS CURRENTCHAMBER (INDEX INT NOT NULL);')
     con.commit()
 
 
