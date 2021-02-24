@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 
     const result = R.head(R.values(R.head(res.rows)));
 
-    var query2 = pgClient.query("SELECT chamber FROM CHAMBERS WHERE index=" + result + ";").then(res => {   
+    var query2 = pgClient.query("SELECT name FROM CHAMBERS WHERE index=" + result + ";").then(res => {   
 
       var currentChamber = res.rows[0]
   
