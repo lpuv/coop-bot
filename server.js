@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
       var currentChamber = res.rows[0]
   
       //console.log(result);
-  }).finally(() => pgClient.end());
+  }).finally();
 
     //console.log(result);
 }).finally(() => pgClient.end());
