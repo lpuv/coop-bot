@@ -26,7 +26,7 @@ con = psycopg2.connect(
             port=port
             )
 
-con.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+#con.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
 
 @bot.command()
 async def ping(ctx):

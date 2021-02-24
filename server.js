@@ -1,17 +1,31 @@
 const express = require('express');
 const path = require('path');
+const pg = require('pg');
+const R = require('ramda')
+
 
 const app = express();
 
 app.get('/', (req, res) => {
-  const fs = require('fs') 
+  var currentChamber;
 
-  fs.readFile('Input.txt', (err, data) => { 
-    if (err) throw err; 
+  var pgClient = new pg.Client(process.env.DATABASE_URL);
+  pgClient.connect(); 
 
-    //console.log(data.toString());
-    let currentChamber = data.toString()
-  })
+  var query = pgClient.query("SELECT index from CURRENTCHAMBER;").then(res => {
+
+    const result = R.head(R.values(R.head(res.rows)));
+
+    var query2 = pgClient.query("SELECT chamber FROM CHAMBERS WHERE index=" + result + ";").then(res => {   
+
+      var currentChamber = res.rows[0]
+  
+      //console.log(result);
+  }).finally(() => pgClient.end());
+
+    //console.log(result);
+}).finally(() => pgClient.end());
+
   res.status(200).send(currentChamber) /*sendFile(path.join(__dirname, 'index.html'));*/
   //const fsLibrary  = require('fs')
 //  if (req.query.token) {
